@@ -16,6 +16,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 import { ROUTES } from './app.routes';
 
+// pipes
+import { NoimagesPipe } from './pipes/noimages.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { ROUTES } from './app.routes';
     HomeComponent,
     SearchComponent,
     ArtistaComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoimagesPipe
   ],
   imports: [
     BrowserModule,

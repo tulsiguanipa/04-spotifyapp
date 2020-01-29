@@ -10,12 +10,12 @@ export class HomeComponent implements OnInit {
   
   nuevasCanciones: any [] = [];
 
-  constructor( private spotify : SpotifyService ) { 
+  constructor( private spotify: SpotifyService ) { 
 
     this.spotify.getNewReleases()
     .subscribe( (data: any) => {
-      console.log(data.albums.items);
-      this.nuevasCanciones = data.albums.items;
+      console.log(data);
+      this.nuevasCanciones = data;
 
     });
 
