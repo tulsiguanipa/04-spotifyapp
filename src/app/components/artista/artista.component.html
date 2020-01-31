@@ -3,13 +3,15 @@
 
 <div class="row animated fadeIn " *ngIf="!loadingArtists">
     <div class="col-2">
-        <img [src]="artista.images | noimages" class=" img-circle img-fluid">
+        <img [src]="artista.images | noimages" class=" img-circle img-thumb2">
 
     </div>
     <div class="col">
         <h3>{{ artista.name }}</h3>
+
+        <iframe src="https://open.spotify.com/follow/1/?uri=spotify{{ artista.followers.total }}&size=detail&theme=dark" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+
         <p>
-            
             <a [href]="artista.external_urls.spotify" target="_blank"> Ir a la pagina del artista. </a>
         </p>
 
@@ -23,25 +25,23 @@
     
 </div>
 
-<div class="row m-5">
+<div class="row m-2">
     <div class="col">
         <table class="table">
-            <thead>
+            <thead class="text-white text-center">
                 <tr>
                     <th>Foto</th>
                     <th>Album</th>
                     <th>Cancion</th>
                     <th>Vista previa</th>
                 </tr>
-            </thead>
-
-            
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+            </thead>            
+            <tbody  class="text-white text-center">
+                <tr *ngFor="let track of topTracks">
+                    <td><img [src]="track.album.images | noimages" class="img-thumb"></td>
+                    <td>{{ track.album.name }}</td>
+                    <td>{{ track.name }}</td>
+                    <td> <iframe [src]=" track.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
                 </tr>
 
             </tbody>
